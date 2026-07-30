@@ -10,15 +10,15 @@ const items = [
 
 export default function BottomNav() {
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 glass-dark border-t border-white/10">
-      <ul className="flex items-center justify-around py-2">
+    <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 glass-dark border-t border-white/10 pb-safe">
+      <ul className="flex items-center justify-around py-1">
         {items.map(({ label, href, icon: Icon }) => (
           <li key={href}>
             <a
               href={href}
-              className="flex flex-col items-center gap-1 px-3 py-1 text-white/80 hover:text-brightGold text-[11px] font-medium"
+              className="flex flex-col items-center gap-0.5 px-2 py-2 text-white/80 hover:text-brightGold text-[10px] font-medium min-w-[64px]"
             >
-              <Icon size={19} />
+              <Icon size={20} />
               {label}
             </a>
           </li>

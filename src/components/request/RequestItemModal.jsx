@@ -52,7 +52,7 @@ export default function RequestItemModal({ open, onClose, initialItem }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
             transition={{ type: "spring", damping: 22, stiffness: 260 }}
-            className="relative w-full max-w-lg rounded-xl2 glass shadow-glowPurple p-7 sm:p-8 max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-lg rounded-xl2 glass shadow-glowPurple p-5 sm:p-7 sm:p-8 max-h-[90vh] overflow-y-auto"
           >
             <button
               onClick={onClose}
@@ -101,7 +101,7 @@ export default function RequestItemModal({ open, onClose, initialItem }) {
                     onChange={setItemName}
                     required
                   />
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
                     <Field
                       icon={Hash}
                       placeholder="Quantity *"

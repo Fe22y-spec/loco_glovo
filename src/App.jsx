@@ -4,8 +4,7 @@ import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import BottomNav from "./components/layout/BottomNav.jsx";
 import FloatingWhatsApp from "./components/layout/FloatingWhatsApp.jsx";
-import ResidenceModal from "./components/modals/ResidenceModal.jsx";
-import DeliveryDetailsModal from "./components/modals/DeliveryDetailsModal.jsx";
+
 import Hero from "./components/hero/Hero.jsx";
 import Categories from "./components/categories/Categories.jsx";
 import PopularCarousel from "./components/products/PopularCarousel.jsx";
@@ -33,11 +32,6 @@ function ProtectedRoute({ children }) {
 }
 
 function CustomerPage() {
-  const { details, setHostel, setDeliveryDetails } = useOrder();
-
-  const [onboardStep, setOnboardStep] = useState(
-    details.onboarded ? "done" : details.hostel ? "details" : "residence"
-  );
   const [activeCategory, setActiveCategory] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [requestOpen, setRequestOpen] = useState(false);
@@ -75,24 +69,6 @@ function CustomerPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <ResidenceModal
-        open={onboardStep === "residence"}
-        onSelect={(hostel) => {
-          setHostel(hostel);
-          setOnboardStep("details");
-        }}
-      />
-
-      <DeliveryDetailsModal
-        open={onboardStep === "details"}
-        hostel={details.hostel}
-        onBack={() => setOnboardStep("residence")}
-        onSubmit={(payload) => {
-          setDeliveryDetails(payload);
-          setOnboardStep("done");
-        }}
-      />
-
       <Navbar />
 
       <main className="flex-1">

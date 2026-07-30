@@ -42,7 +42,7 @@ export default function OffersBanner() {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
           {offers.map((offer, i) => (
             <motion.div
               key={offer.title}

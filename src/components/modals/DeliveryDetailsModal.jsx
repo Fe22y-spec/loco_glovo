@@ -39,7 +39,7 @@ export default function DeliveryDetailsModal({ open, hostel, onBack, onSubmit })
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
             transition={{ type: "spring", damping: 22, stiffness: 260 }}
-            className="relative w-full max-w-md rounded-xl2 glass shadow-glowPurple p-8"
+            className="relative w-full max-w-md rounded-xl2 glass shadow-glowPurple p-6 sm:p-8"
           >
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-vibrantOrange">
               Delivering to {hostel}

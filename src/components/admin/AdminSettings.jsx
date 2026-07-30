@@ -152,7 +152,7 @@ export default function AdminSettings() {
                 <span className="text-xs text-gray-500">KSh</span>
                 <input type="number" value={item.price}
                   onChange={(e) => updateCatalogueItem(item.id, { price: Number(e.target.value) })}
-                  className="w-16 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-2 py-1 text-xs text-ink dark:text-white outline-none focus:ring-1 focus:ring-vibrantOrange"
+                  className="w-14 sm:w-16 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-1.5 sm:px-2 py-1 text-xs text-ink dark:text-white outline-none focus:ring-1 focus:ring-vibrantOrange"
                 />
                 <button onClick={() => removeCatalogueItem(item.id)}
                   className="h-7 w-7 grid place-items-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50"
@@ -171,7 +171,7 @@ export default function AdminSettings() {
           <div className="flex flex-wrap gap-2">
             <input type="text" value={newItem.name} placeholder="Item name"
               onChange={(e) => setNewItem((f) => ({ ...f, name: e.target.value }))}
-              className="flex-1 min-w-[140px] rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-3 py-2 text-sm text-ink dark:text-white placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-vibrantOrange"
+              className="flex-1 min-w-[120px] sm:min-w-[140px] rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-3 py-2 text-sm text-ink dark:text-white placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-vibrantOrange"
             />
             <select value={newItem.category}
               onChange={(e) => setNewItem((f) => ({ ...f, category: e.target.value }))}
@@ -183,7 +183,7 @@ export default function AdminSettings() {
               <span className="text-xs text-gray-500">KSh</span>
               <input type="number" value={newItem.price} placeholder="Price"
                 onChange={(e) => setNewItem((f) => ({ ...f, price: e.target.value }))}
-                className="w-16 bg-transparent outline-none text-sm text-ink dark:text-white"
+                className="w-14 sm:w-16 bg-transparent outline-none text-sm text-ink dark:text-white"
               />
             </div>
             <button onClick={handleAddItem}

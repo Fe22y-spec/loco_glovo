@@ -23,6 +23,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.classList.toggle("nav-open", mobileOpen);
+    return () => document.body.classList.remove("nav-open");
+  }, [mobileOpen]);
+
+  // Close mobile menu on resize past md breakpoint
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -73,24 +86,28 @@ export default function Navbar() {
       </nav>
 
       {mobileOpen && (
-        <motion.ul
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden glass-dark px-6 pb-4 flex flex-col gap-3"
-        >
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                onClick={() => setMobileOpen(false)}
-                className="block py-2 text-sm font-medium text-white/90 hover:text-brightGold"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </motion.ul>
+        <>
+          {/* Backdrop for closing */}
+          <div className="md:hidden fixed inset-0 z-40" onClick={() => setMobileOpen(false)} />
+          <motion.ul
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden relative z-50 glass-dark px-6 pb-6 pt-2 flex flex-col gap-1"
+          >
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-3 text-sm font-medium text-white/90 hover:text-brightGold active:text-brightGold min-h-[44px] flex items-center"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </motion.ul>
+        </>
       )}
     </header>
   );

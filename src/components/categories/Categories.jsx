@@ -11,7 +11,7 @@ export default function Categories({ activeCategory, onSelectCategory }) {
         title="What do you need today?"
         subtitle="Tap a category to filter the menu below — or clear it to see everything."
       />
-      <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2 sm:grid sm:grid-cols-4 lg:grid-cols-8 sm:overflow-visible">
+      <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar pb-2 sm:grid sm:grid-cols-4 lg:grid-cols-8 sm:overflow-visible">
         {categories.map((cat, i) => (
           <CategoryCard
             key={cat.id}

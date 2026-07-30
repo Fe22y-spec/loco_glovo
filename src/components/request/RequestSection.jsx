@@ -51,7 +51,7 @@ export default function RequestSection({ onRequest }) {
           Type anything you need and we'll try to get it delivered.
         </p>
 
-        <form onSubmit={handleSubmit} className="mt-8 flex items-center gap-2 rounded-full glass shadow-card p-2">
+        <form onSubmit={handleSubmit} className="mt-8 flex items-center gap-2 rounded-full glass shadow-card p-1.5 sm:p-2">
           <Search size={18} className="ml-2 text-gray-400 shrink-0" />
           <input
             value={query}

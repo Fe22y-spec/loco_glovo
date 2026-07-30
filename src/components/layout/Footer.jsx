@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="absolute -top-20 left-1/4 w-72 h-72 bg-royalPurple/30 rounded-full blur-3xl" />
       <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-vibrantOrange/20 rounded-full blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
         <div>
           <img src="/logo.svg" alt="LocoGlovo" className="h-8 w-auto mb-4" />
           <p className="text-sm text-white/70 max-w-xs">
@@ -31,9 +31,9 @@ export default function Footer() {
         <div>
           <h4 className="font-display font-semibold mb-4 text-brightGold">Contact</h4>
           <ul className="space-y-3 text-sm text-white/70">
-            <li className="flex items-center gap-2"><Phone size={15} /> +254 763 377 229</li>
-            <li className="flex items-center gap-2"><MessageCircle size={15} /> <a href="https://wa.me/254763377229" target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp us</a></li>
-            <li className="flex items-center gap-2"><MapPin size={15} /> Qwetu & Qejani Hostels</li>
+            <li className="flex items-center gap-2 break-all sm:break-normal"><Phone size={15} className="shrink-0" /> +254 763 377 229</li>
+            <li className="flex items-center gap-2"><MessageCircle size={15} className="shrink-0" /> <a href="https://wa.me/254763377229" target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp us</a></li>
+            <li className="flex items-center gap-2"><MapPin size={15} className="shrink-0" /> Qwetu & Qejani Hostels</li>
           </ul>
         </div>
 
@@ -50,11 +50,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="relative mt-12 pt-6 border-t border-white/10 mx-auto max-w-7xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/50">
+      <div className="relative mt-12 pt-6 border-t border-white/10 mx-auto max-w-7xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
         <p>© {year} LocoGlovo. All rights reserved.</p>
-        <div className="flex items-center gap-4">
-          <Link to="/admin/login" className="hover:text-white/80 transition-colors">Admin</Link>
-          <p className="font-display text-brightGold">Anything. Anywhere. We Deliver.</p>
+        <div className="flex items-center gap-4 flex-wrap justify-center">
+          <Link to="/admin/login" className="hover:text-white/80 transition-colors whitespace-nowrap">Admin</Link>
+          <p className="font-display text-brightGold whitespace-nowrap">Anything. Anywhere. We Deliver.</p>
         </div>
       </div>
     </footer>

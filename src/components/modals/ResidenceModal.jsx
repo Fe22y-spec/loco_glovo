@@ -24,7 +24,7 @@ export default function ResidenceModal({ open, onSelect }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
             transition={{ type: "spring", damping: 22, stiffness: 260 }}
-            className="relative w-full max-w-lg rounded-xl2 glass shadow-glowPurple p-8 sm:p-10 text-center overflow-hidden"
+            className="relative w-full max-w-lg rounded-xl2 glass shadow-glowPurple p-6 sm:p-8 sm:p-10 text-center overflow-hidden"
           >
             <div className="absolute -top-24 -right-24 w-56 h-56 bg-vibrantOrange/30 rounded-full blur-3xl animate-blob" />
             <div className="absolute -bottom-24 -left-24 w-56 h-56 bg-royalPurple/30 rounded-full blur-3xl animate-blob" />

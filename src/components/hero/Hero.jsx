@@ -49,20 +49,20 @@ export default function Hero({ onSearch }) {
               onSearch?.(q);
               document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="mt-8 flex items-center gap-2 rounded-full glass p-2 max-w-md"
+            className="mt-8 flex items-center gap-2 rounded-full glass p-1.5 sm:p-2 max-w-md"
           >
             <Search size={18} className="ml-2 text-white/80" />
             <input
               name="q"
               placeholder="Search for food, drinks, errands…"
-              className="w-full bg-transparent outline-none text-sm text-white placeholder:text-white/60 py-2"
+              className="w-full bg-transparent outline-none text-sm sm:text-sm text-white placeholder:text-white/60 py-2"
             />
             <RippleButton type="submit" className="!px-5 !py-2 text-sm">
               Search
             </RippleButton>
           </form>
 
-          <div className="mt-10 flex items-center gap-8">
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 sm:gap-8">
             <AnimatedCounter value={2400} suffix="+" label="Orders Delivered" />
             <AnimatedCounter value={25} suffix=" min" label="Avg. Delivery" />
             <AnimatedCounter value={4.9} suffix="★" label="Resident Rating" />

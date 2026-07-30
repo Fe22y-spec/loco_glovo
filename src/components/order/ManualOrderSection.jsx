@@ -189,14 +189,14 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
         align="center"
       />
 
-      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto mt-10 space-y-8">
+      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto mt-10 space-y-6 sm:space-y-8">
         {/* Student Information */}
         <motion.div
           ref={formRef}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          className="glass rounded-xl2 shadow-card p-6 sm:p-8"
+          className="glass rounded-xl2 shadow-card p-4 sm:p-6 sm:p-8"
         >
           <h3 className="font-display font-bold text-lg text-ink dark:text-white mb-5 flex items-center gap-2">
             <User size={18} className="text-vibrantOrange" />
@@ -222,7 +222,7 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               <InputField icon={Building} placeholder="Floor Number (e.g. Floor 3)" value={form.block} onChange={update("block")} />
               <InputField icon={DoorOpen} placeholder="Room Number * (e.g. A-304)" value={form.room} onChange={update("room")} required />
             </div>
@@ -249,7 +249,7 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          className="glass rounded-xl2 shadow-card p-6 sm:p-8"
+          className="glass rounded-xl2 shadow-card p-4 sm:p-6 sm:p-8"
         >
           <h3 className="font-display font-bold text-lg text-ink dark:text-white mb-5 flex items-center gap-2">
             <ShoppingCart size={18} className="text-vibrantOrange" />
@@ -293,7 +293,7 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          className="glass rounded-xl2 shadow-card p-6 sm:p-8"
+          className="glass rounded-xl2 shadow-card p-4 sm:p-6 sm:p-8"
         >
           <h3 className="font-display font-bold text-lg text-ink dark:text-white mb-1 flex items-center gap-2">
             <ClipboardList size={18} className="text-vibrantOrange" />
@@ -335,7 +335,7 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          className="glass rounded-xl2 shadow-card p-6 sm:p-8"
+          className="glass rounded-xl2 shadow-card p-4 sm:p-6 sm:p-8"
         >
           <h3 className="font-display font-bold text-lg text-ink dark:text-white mb-5 flex items-center gap-2">
             <ClipboardList size={18} className="text-vibrantOrange" />
@@ -458,7 +458,7 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
         {orderType && (
           <div className="text-center">
             {error && <p className="text-sm text-red-500 mb-3">{error}</p>}
-            <RippleButton type="submit" disabled={processing} className="px-10 py-3.5 text-base justify-center">
+            <RippleButton type="submit" disabled={processing} className="px-10 py-3.5 text-base justify-center w-full sm:w-auto">
               {processing ? (
                 <span className="flex items-center gap-2"><Loader size={18} className="animate-spin" /> Processing M-Pesa...</span>
               ) : orderType === "Standard" ? (
@@ -482,7 +482,7 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
-              className="bg-white dark:bg-[#1a0a2e] rounded-2xl p-8 text-center max-w-sm mx-4 shadow-2xl"
+              className="bg-white dark:bg-[#1a0a2e] rounded-2xl p-6 sm:p-8 text-center max-w-sm mx-4 shadow-2xl"
             >
               <div className="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-green-400 to-green-600 grid place-items-center shadow-lg mb-4">
                 <Loader size={28} className="text-white animate-spin" />

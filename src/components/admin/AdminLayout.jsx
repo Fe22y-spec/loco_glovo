@@ -56,18 +56,18 @@ export default function AdminLayout({ children }) {
 
       {/* Mobile header */}
       <div className="flex flex-col flex-1 min-w-0">
-        <header className="md:hidden bg-ink text-white px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <ShoppingCart size={18} className="text-brightGold" />
-            <span className="font-display font-bold text-sm">Loco<span className="text-brightGold">Glovo</span></span>
+        <header className="md:hidden bg-ink text-white px-3 py-3 flex items-center justify-between gap-1">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <ShoppingCart size={16} className="text-brightGold" />
+            <span className="font-display font-bold text-xs">Loco<span className="text-brightGold">Glovo</span></span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-xs font-medium px-2.5 py-1.5 rounded-full transition-colors ${
+                  `text-[10px] font-medium whitespace-nowrap px-2 py-1.5 rounded-full transition-colors ${
                     isActive ? "bg-white/15 text-brightGold" : "text-white/60"
                   }`
                 }
@@ -75,8 +75,8 @@ export default function AdminLayout({ children }) {
                 {item.label}
               </NavLink>
             ))}
-            <button onClick={handleLogout} className="text-white/60 hover:text-red-400 text-xs px-2 py-1">
-              <LogOut size={15} />
+            <button onClick={handleLogout} className="text-white/60 hover:text-red-400 shrink-0 px-1.5 py-1">
+              <LogOut size={14} />
             </button>
           </div>
         </header>

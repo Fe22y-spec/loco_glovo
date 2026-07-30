@@ -14,9 +14,9 @@ export default function PopularCarousel({ onAddToOrder }) {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
       <SectionHeading eyebrow="Trending" title="Popular Right Now" />
-      <div className="flex gap-5 overflow-x-auto no-scrollbar pb-4 snap-x">
+      <div className="flex gap-3 sm:gap-5 overflow-x-auto no-scrollbar pb-4 snap-x">
         {popular.map((p, i) => (
-          <div key={p.id} className="min-w-[240px] sm:min-w-[260px] snap-start">
+          <div key={p.id} className="min-w-[200px] sm:min-w-[240px] lg:min-w-[260px] snap-start">
             <ProductCard product={p} index={i} onAddToOrder={onAddToOrder} />
           </div>
         ))}

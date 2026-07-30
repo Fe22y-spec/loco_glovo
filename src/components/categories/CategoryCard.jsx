@@ -11,7 +11,7 @@ export default function CategoryCard({ category, active, onClick, index }) {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ scale: 1.06, y: -6 }}
       whileTap={{ scale: 0.96 }}
-      className={`group relative flex flex-col items-center justify-center gap-2 rounded-2xl p-5 min-w-[120px] transition-shadow ${
+      className={`group relative flex flex-col items-center justify-center gap-2 rounded-2xl p-4 sm:p-5 min-w-[100px] sm:min-w-[120px] transition-shadow ${
         active
           ? `bg-gradient-to-br ${category.gradient} shadow-glowOrange text-white`
           : "glass shadow-card text-ink dark:text-white hover:shadow-glowPurple"

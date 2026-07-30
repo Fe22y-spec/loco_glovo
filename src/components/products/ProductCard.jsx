@@ -18,7 +18,7 @@ export default function ProductCard({ product, index = 0, onAddToOrder }) {
       whileHover={{ y: -8 }}
       className="glow-card glass shadow-card rounded-xl2 overflow-hidden flex flex-col"
     >
-      <div className="relative h-40 overflow-hidden">
+      <div className="relative h-32 sm:h-40 overflow-hidden">
         <motion.img
           src={product.image}
           alt={product.name}
@@ -40,7 +40,7 @@ export default function ProductCard({ product, index = 0, onAddToOrder }) {
           {product.description}
         </p>
 
-        <div className="mt-3 flex items-center gap-3">
+        <div className="mt-3 flex items-center gap-2 sm:gap-3">
           <div className="flex items-center rounded-full border border-gray-200 dark:border-white/20 bg-white/70 dark:bg-white/5">
             <button
               type="button"

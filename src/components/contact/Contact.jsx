@@ -41,7 +41,7 @@ export default function Contact() {
         align="center"
       />
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto">
         {actions.map((a, i) => (
           <motion.a
             key={a.label}

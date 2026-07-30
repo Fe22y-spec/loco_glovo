@@ -37,7 +37,7 @@ export default function DeliveryRates() {
                   {meta.label}
                 </h3>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-4xl mx-auto">
                 {slots.map((slot, i) => (
                   <motion.div
                     key={slot.id}

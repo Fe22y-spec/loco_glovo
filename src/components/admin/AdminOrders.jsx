@@ -112,17 +112,15 @@ export default function AdminOrders() {
         </div>
       </div>
 
-      {/* Search + Filters */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-1">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by Order ID, name, phone or room..."
-            className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 pl-9 pr-4 py-2.5 text-sm outline-none text-ink dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-vibrantOrange"
-          />
-        </div>
+      {/* Search */}
+      <div className="relative">
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search by Order ID, name, phone or room..."
+          className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 pl-9 pr-4 py-2.5 text-sm outline-none text-ink dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-vibrantOrange"
+        />
       </div>
 
       <div className="flex flex-wrap gap-2">
@@ -231,14 +229,14 @@ export default function AdminOrders() {
                     <div className="flex gap-1">
                       <button
                         onClick={() => copyToClipboard(order)}
-                        className="text-[10px] font-semibold px-2 py-1 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white"
+                        className="text-[10px] font-semibold px-2 py-1.5 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white min-w-[44px]"
                         title="Copy Order"
                       >
                         Copy
                       </button>
                       <button
                         onClick={() => window.print()}
-                        className="text-[10px] font-semibold px-2 py-1 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white"
+                        className="text-[10px] font-semibold px-2 py-1.5 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white min-w-[44px]"
                         title="Print Order"
                       >
                         Print

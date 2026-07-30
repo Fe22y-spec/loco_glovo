@@ -43,13 +43,13 @@ export default function ProductGrid({ activeCategory, searchTerm, setSearchTerm,
       </div>
 
       {loading ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
           {Array.from({ length: 8 }).map((_, i) => (
             <CardSkeleton key={i} />
           ))}
         </div>
       ) : filtered.length > 0 ? (
-        <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
           <AnimatePresence>
             {filtered.map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} onAddToOrder={onAddToOrder} />

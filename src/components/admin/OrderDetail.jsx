@@ -317,13 +317,13 @@ export default function OrderDetail() {
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 Enter a total price for all custom items below. The system will calculate the final total including delivery.
               </p>
-              <div className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-3 focus-within:ring-2 focus-within:ring-vibrantOrange">
-                <span className="text-sm font-semibold text-gray-500">KSh</span>
+              <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-3 sm:px-4 py-3 focus-within:ring-2 focus-within:ring-vibrantOrange">
+                <span className="text-xs sm:text-sm font-semibold text-gray-500 shrink-0">KSh</span>
                 <input
                   type="number"
                   value={customPrice}
                   onChange={(e) => setCustomPrice(e.target.value)}
-                  placeholder="Enter price for custom items"
+                  placeholder="Enter price"
                   className="w-full bg-transparent outline-none text-sm text-ink dark:text-white"
                 />
               </div>
