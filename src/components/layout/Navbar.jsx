@@ -66,17 +66,17 @@ export default function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
-            className={`grid place-items-center h-9 w-9 rounded-full transition-colors ${
-              scrolled ? "bg-white/10 text-white" : "bg-white/70 dark:bg-white/10 text-ink dark:text-white"
-            }`}
+            className={`grid place-items-center h-10 sm:h-9 w-10 sm:w-9 rounded-full transition-colors ${
+               scrolled ? "bg-white/10 text-white" : "bg-white/70 dark:bg-white/10 text-ink dark:text-white"
+             }`}
           >
             {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
           </button>
 
           <button
-            className={`md:hidden grid place-items-center h-9 w-9 rounded-full ${
-              scrolled ? "bg-white/10 text-white" : "bg-white/70 dark:bg-white/10 text-ink dark:text-white"
-            }`}
+            className={`md:hidden grid place-items-center h-10 sm:h-9 w-10 sm:w-9 rounded-full ${
+               scrolled ? "bg-white/10 text-white" : "bg-white/70 dark:bg-white/10 text-ink dark:text-white"
+             }`}
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >

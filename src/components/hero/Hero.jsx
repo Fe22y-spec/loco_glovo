@@ -57,7 +57,7 @@ export default function Hero({ onSearch }) {
               placeholder="Search for food, drinks, errands…"
               className="w-full bg-transparent outline-none text-sm sm:text-sm text-white placeholder:text-white/60 py-2"
             />
-            <RippleButton type="submit" className="!px-5 !py-2 text-sm">
+            <RippleButton type="submit" className="!px-5 !py-2.5 sm:!py-2 text-sm min-h-[44px] sm:min-h-0">
               Search
             </RippleButton>
           </form>

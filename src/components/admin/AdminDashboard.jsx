@@ -67,7 +67,7 @@ export default function AdminDashboard() {
                 <button
                   key={order.id}
                   onClick={() => navigate(`/admin/orders/${order.id}`)}
-                  className="w-full flex items-center justify-between rounded-lg bg-white/50 dark:bg-white/5 px-4 py-2.5 text-left hover:bg-white/80 dark:hover:bg-white/10 transition-colors"
+                  className="w-full flex items-center justify-between rounded-lg bg-white/50 dark:bg-white/5 px-4 py-3 sm:py-2.5 text-left hover:bg-white/80 dark:hover:bg-white/10 transition-colors"
                 >
                   <div>
                     <p className="text-sm font-semibold text-ink dark:text-white">{order.id}</p>

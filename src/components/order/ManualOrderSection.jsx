@@ -212,11 +212,11 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
               <div className="flex gap-2">
                 {hostels.map((h) => (
                   <button key={h} type="button" onClick={() => setForm((f) => ({ ...f, residence: h }))}
-                    className={`flex-1 rounded-xl border py-2.5 text-sm font-semibold transition-all ${
-                      form.residence === h
-                        ? "bg-brand-gradient text-white border-transparent"
-                        : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 bg-white/70 dark:bg-white/5"
-                    }`}
+                    className={`flex-1 rounded-xl border py-2.5 text-sm font-semibold transition-all min-h-[44px] ${
+                       form.residence === h
+                         ? "bg-brand-gradient text-white border-transparent"
+                         : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 bg-white/70 dark:bg-white/5"
+                     }`}
                   >{h}</button>
                 ))}
               </div>
@@ -273,7 +273,7 @@ export default function ManualOrderSection({ orderItems, setOrderItems, catalogu
                   <div className="flex items-center gap-3 shrink-0">
                     <span className="text-sm font-bold text-vibrantOrange">KSh {item.unitPrice * item.quantity}</span>
                     <button type="button" onClick={() => onRemoveCatalogueItem?.(item.name)}
-                      className="h-7 w-7 grid place-items-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50"
+                      className="h-8 sm:h-7 w-8 sm:w-7 grid place-items-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50"
                     >
                       <Trash2 size={13} />
                     </button>

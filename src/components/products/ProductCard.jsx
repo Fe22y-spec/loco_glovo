@@ -45,7 +45,7 @@ export default function ProductCard({ product, index = 0, onAddToOrder }) {
             <button
               type="button"
               onClick={() => setQty((v) => Math.max(1, v - 1))}
-              className="h-8 w-8 grid place-items-center text-ink dark:text-white hover:text-vibrantOrange"
+              className="h-9 sm:h-8 w-9 sm:w-8 grid place-items-center text-ink dark:text-white hover:text-vibrantOrange"
             >
               <Minus size={14} />
             </button>
@@ -53,7 +53,7 @@ export default function ProductCard({ product, index = 0, onAddToOrder }) {
             <button
               type="button"
               onClick={() => setQty((v) => v + 1)}
-              className="h-8 w-8 grid place-items-center text-ink dark:text-white hover:text-vibrantOrange"
+              className="h-9 sm:h-8 w-9 sm:w-8 grid place-items-center text-ink dark:text-white hover:text-vibrantOrange"
             >
               <Plus size={14} />
             </button>
@@ -65,7 +65,7 @@ export default function ProductCard({ product, index = 0, onAddToOrder }) {
               setQty(1);
             }}
             whileTap={{ scale: 0.95 }}
-            className="btn-ripple relative flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-brand-gradient text-white text-xs font-semibold py-2 shadow-glowPurple hover:shadow-glowOrange transition-shadow"
+            className="btn-ripple relative flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-brand-gradient text-white text-xs font-semibold py-2.5 sm:py-2 shadow-glowPurple hover:shadow-glowOrange transition-shadow min-h-[44px] sm:min-h-0"
           >
             <ShoppingCart size={13} /> Add
           </motion.button>

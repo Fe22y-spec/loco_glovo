@@ -67,7 +67,7 @@ export default function AdminLayout({ children }) {
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-[10px] font-medium whitespace-nowrap px-2 py-1.5 rounded-full transition-colors ${
+                  `text-[10px] font-medium whitespace-nowrap px-2.5 py-2 rounded-full transition-colors ${
                     isActive ? "bg-white/15 text-brightGold" : "text-white/60"
                   }`
                 }
@@ -75,8 +75,8 @@ export default function AdminLayout({ children }) {
                 {item.label}
               </NavLink>
             ))}
-            <button onClick={handleLogout} className="text-white/60 hover:text-red-400 shrink-0 px-1.5 py-1">
-              <LogOut size={14} />
+            <button onClick={handleLogout} className="text-white/60 hover:text-red-400 shrink-0 px-2 py-2">
+              <LogOut size={15} />
             </button>
           </div>
         </header>

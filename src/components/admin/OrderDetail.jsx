@@ -106,10 +106,10 @@ export default function OrderDetail() {
           </p>
         </div>
         <div className="flex gap-2">
-          <button onClick={copyOrder} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 dark:border-white/10 px-4 py-2 text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-white/5">
+          <button onClick={copyOrder} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 dark:border-white/10 px-4 py-2.5 sm:py-2 text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-white/5 min-h-[44px] sm:min-h-0">
             <Copy size={13} /> Copy Order
           </button>
-          <button onClick={() => window.print()} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 dark:border-white/10 px-4 py-2 text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-white/5">
+          <button onClick={() => window.print()} className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 dark:border-white/10 px-4 py-2.5 sm:py-2 text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-white/5 min-h-[44px] sm:min-h-0">
             <Printer size={13} /> Print
           </button>
         </div>
@@ -156,7 +156,7 @@ export default function OrderDetail() {
               <button
                 key={s}
                 onClick={() => handleStatusChange(s)}
-                className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
+                className={`rounded-full px-4 py-2 sm:py-1.5 text-xs font-bold transition-all min-h-[44px] sm:min-h-0 ${
                   order.status === s
                     ? "bg-brand-gradient text-white shadow-glowPurple"
                     : "bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-vibrantOrange"
@@ -306,7 +306,7 @@ export default function OrderDetail() {
               {order.status === "Priced" && (
                 <button
                   onClick={handleMarkAsPaid}
-                  className="inline-flex items-center gap-2 rounded-full bg-green-600 text-white text-xs font-bold px-4 py-2 hover:bg-green-700 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-green-600 text-white text-xs font-bold px-4 py-2.5 sm:py-2 hover:bg-green-700 transition-colors min-h-[44px] sm:min-h-0"
                 >
                   <Check size={14} /> Mark as Paid (M-Pesa)
                 </button>
@@ -336,7 +336,7 @@ export default function OrderDetail() {
               <button
                 onClick={handleSendInvoice}
                 disabled={!customPrice || Number(customPrice) <= 0}
-                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient text-white text-sm font-semibold px-5 py-2.5 disabled:opacity-50 hover:shadow-glowOrange transition-shadow"
+                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient text-white text-sm font-semibold px-5 py-2.5 disabled:opacity-50 hover:shadow-glowOrange transition-shadow min-h-[44px] sm:min-h-0"
               >
                 <Send size={15} /> {invoiceSent ? "Invoice Sent!" : "Send Invoice"}
               </button>
@@ -400,7 +400,7 @@ export default function OrderDetail() {
         />
         <button
           onClick={handleNotesSave}
-          className="mt-2 rounded-full bg-brand-gradient text-white text-xs font-semibold px-4 py-2 hover:shadow-glowOrange transition-shadow"
+          className="mt-2 rounded-full bg-brand-gradient text-white text-xs font-semibold px-4 py-2.5 sm:py-2 hover:shadow-glowOrange transition-shadow min-h-[44px] sm:min-h-0"
         >
           Save Notes
         </button>

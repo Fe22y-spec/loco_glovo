@@ -121,7 +121,7 @@ export default function AdminSettings() {
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-3 mb-3">
           {["All", ...categories].map((cat) => (
             <button key={cat} onClick={() => setCatFilter(cat)}
-              className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-semibold transition-colors ${
+              className={`shrink-0 rounded-full px-3 py-2 sm:py-1 text-[10px] font-semibold transition-colors min-h-[44px] sm:min-h-0 ${
                 catFilter === cat
                   ? "bg-brand-gradient text-white"
                   : "bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10"
@@ -135,7 +135,7 @@ export default function AdminSettings() {
           {filteredCatalogue.map((item) => (
             <div key={item.id} className="flex items-center gap-2 rounded-lg bg-white/50 dark:bg-white/5 px-3 py-2">
               <button onClick={() => updateCatalogueItem(item.id, { enabled: !item.enabled })}
-                className={`shrink-0 h-7 w-7 grid place-items-center rounded-full ${
+                className={`shrink-0 h-8 sm:h-7 w-8 sm:w-7 grid place-items-center rounded-full ${
                   item.enabled ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400" : "bg-red-100 text-red-500 dark:bg-red-900/30 dark:text-red-400"
                 }`}
                 title={item.enabled ? "Disable" : "Enable"}
@@ -155,7 +155,7 @@ export default function AdminSettings() {
                   className="w-14 sm:w-16 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-1.5 sm:px-2 py-1 text-xs text-ink dark:text-white outline-none focus:ring-1 focus:ring-vibrantOrange"
                 />
                 <button onClick={() => removeCatalogueItem(item.id)}
-                  className="h-7 w-7 grid place-items-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50"
+                  className="h-8 sm:h-7 w-8 sm:w-7 grid place-items-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50"
                   title="Remove"
                 >
                   <Trash2 size={12} />
@@ -187,7 +187,7 @@ export default function AdminSettings() {
               />
             </div>
             <button onClick={handleAddItem}
-              className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient text-white text-xs font-semibold px-4 py-2 hover:shadow-glowOrange transition-shadow"
+              className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient text-white text-xs font-semibold px-4 py-2.5 sm:py-2 hover:shadow-glowOrange transition-shadow min-h-[44px] sm:min-h-0"
             >
               <Plus size={14} /> Add
             </button>
@@ -216,14 +216,14 @@ export default function AdminSettings() {
           </div>
           {passwordError && <p className="text-xs text-red-500">{passwordError}</p>}
           {passwordSuccess && <p className="text-xs text-green-500">Password changed successfully.</p>}
-          <button type="submit" className="rounded-full bg-brand-gradient text-white text-xs font-semibold px-4 py-2 hover:shadow-glowOrange transition-shadow">Update Password</button>
+          <button type="submit" className="rounded-full bg-brand-gradient text-white text-xs font-semibold px-4 py-2.5 sm:py-2 hover:shadow-glowOrange transition-shadow min-h-[44px] sm:min-h-0">Update Password</button>
         </form>
       </motion.div>
 
       {/* Save Button */}
-      <div className="text-center">
+        <div className="text-center">
         <button onClick={handleSave}
-          className="inline-flex items-center gap-2 rounded-full bg-brand-gradient text-white font-display font-semibold px-8 py-3 shadow-glowPurple hover:shadow-glowOrange transition-all"
+          className="inline-flex items-center gap-2 rounded-full bg-brand-gradient text-white font-display font-semibold px-8 py-3 shadow-glowPurple hover:shadow-glowOrange transition-all min-h-[44px] sm:min-h-0"
         >
           <Save size={16} /> {saved ? "Saved!" : "Save Settings"}
         </button>

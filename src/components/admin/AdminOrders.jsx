@@ -129,7 +129,7 @@ export default function AdminOrders() {
             <button
               key={s}
               onClick={() => setFilter(s)}
-              className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${
+              className={`shrink-0 rounded-full px-4 py-2 sm:py-1.5 text-xs font-semibold transition-colors min-h-[44px] sm:min-h-0 ${
                 filter === s
                   ? "bg-brand-gradient text-white"
                   : "bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10"
@@ -144,7 +144,7 @@ export default function AdminOrders() {
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-semibold transition-colors ${
+              className={`shrink-0 rounded-full px-3 py-2 sm:py-1 text-[10px] font-semibold transition-colors min-h-[44px] sm:min-h-0 ${
                 typeFilter === t
                   ? "bg-ink text-white dark:bg-white dark:text-ink"
                   : "bg-white/70 dark:bg-white/5 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-white/10"
@@ -229,14 +229,14 @@ export default function AdminOrders() {
                     <div className="flex gap-1">
                       <button
                         onClick={() => copyToClipboard(order)}
-                        className="text-[10px] font-semibold px-2 py-1.5 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white min-w-[44px]"
+                        className="text-[10px] font-semibold px-2 py-2 sm:py-1.5 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white min-w-[44px] min-h-[44px] sm:min-h-0"
                         title="Copy Order"
                       >
                         Copy
                       </button>
                       <button
                         onClick={() => window.print()}
-                        className="text-[10px] font-semibold px-2 py-1.5 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white min-w-[44px]"
+                        className="text-[10px] font-semibold px-2 py-2 sm:py-1.5 rounded bg-white/70 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:bg-white min-w-[44px] min-h-[44px] sm:min-h-0"
                         title="Print Order"
                       >
                         Print

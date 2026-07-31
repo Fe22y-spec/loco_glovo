@@ -59,7 +59,7 @@ export default function RequestSection({ onRequest }) {
             placeholder="Example: Extension cable, Calculator, KFC, Panadol, Avocado, Notebook, Charger..."
             className="w-full bg-transparent outline-none text-sm text-ink dark:text-white placeholder:text-gray-400 py-2.5"
           />
-          <RippleButton type="submit" className="!px-5 !py-2.5 text-sm shrink-0">
+          <RippleButton type="submit" className="!px-5 !py-2.5 sm:!py-2.5 text-sm shrink-0 min-h-[44px] sm:min-h-0">
             Request Item
           </RippleButton>
         </form>
@@ -73,7 +73,7 @@ export default function RequestSection({ onRequest }) {
               key={s.label}
               type="button"
               onClick={() => handleSuggestion(s.label)}
-              className="inline-flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-1.5 text-xs font-medium text-ink dark:text-white hover:border-vibrantOrange hover:text-vibrantOrange transition-colors"
+              className="inline-flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-2 sm:py-1.5 text-xs sm:text-xs font-medium text-ink dark:text-white hover:border-vibrantOrange hover:text-vibrantOrange transition-colors min-h-[44px] sm:min-h-0"
             >
               <span>{s.emoji}</span>
               {s.label}
