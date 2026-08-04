@@ -7,7 +7,7 @@ import { useAdmin } from "../../context/AdminContext.jsx";
 
 const hostels = ["Qwetu", "Qejani"];
 
-const API_BASE = "http://localhost:3001";
+const API_BASE = "https://loco-glovo.onrender.com";
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));

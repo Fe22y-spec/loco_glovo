@@ -29,7 +29,7 @@ async function getAccessToken() {
   if (accessToken && Date.now() < tokenExpiresAt) return accessToken;
   const auth = Buffer.from(`${process.env.DARAJA_CONSUMER_KEY}:${process.env.DARAJA_CONSUMER_SECRET}`).toString("base64");
   try {
-    const { data } = await axios.get("https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials", {
+    const { data } = await axios.get(`${process.env.DARAJA_BASE_URL}/oauth/v1/generate?grant_type=client_credentials`, {
       headers: { Authorization: `Basic ${auth}` },
     });
     console.log("OAuth token response:", JSON.stringify(data));
@@ -78,7 +78,7 @@ app.post("/api/mpesa/stk-push", async (req, res) => {
     };
 
     const { data } = await axios.post(
-      "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
+      `${process.env.DARAJA_BASE_URL}/mpesa/stkpush/v1/processrequest`,
       payload,
       { headers: { Authorization: `Bearer ${token}` } }
     );
