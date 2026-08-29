@@ -13,24 +13,31 @@ export default function AdminLogin() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null);
+  const [captchaError, setCaptchaError] = useState(false);
   const captchaRef = useRef(null);
   const { login } = useAdmin();
   const navigate = useNavigate();
 
+  console.log("HCAPTCHA_SITE_KEY:", HCAPTCHA_SITE_KEY);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    console.log("Submit clicked. captchaToken:", captchaToken ? "present" : "null");
     if (!captchaToken) {
       setError("Please complete the security check.");
       return;
     }
     setLoading(true);
     try {
+      console.log("Calling login with:", { email, captchaToken: captchaToken.substring(0, 20) + "..." });
       const ok = await login(email, password, captchaToken);
+      console.log("Login result:", ok);
       if (ok) {
         navigate("/admin/dashboard");
       }
     } catch (err) {
+      console.error("Login error:", err);
       setError(err?.message || "Login failed. Check your connection.");
       setCaptchaToken(null);
       captchaRef.current?.resetCaptcha();
@@ -81,10 +88,27 @@ export default function AdminLogin() {
             <HCaptcha
               ref={captchaRef}
               sitekey={HCAPTCHA_SITE_KEY}
-              onVerify={(token) => setCaptchaToken(token)}
-              onExpire={() => setCaptchaToken(null)}
+              onVerify={(token) => {
+                console.log("hCaptcha verified, token received");
+                setCaptchaToken(token);
+              }}
+              onExpire={() => {
+                console.log("hCaptcha token expired");
+                setCaptchaToken(null);
+              }}
+              onError={(err) => {
+                console.error("hCaptcha error:", err);
+                setCaptchaError(true);
+                setError("Security check failed to load. Please refresh the page.");
+              }}
             />
           </div>
+
+          {captchaError && (
+            <p className="text-xs text-yellow-500 text-center">
+              hCaptcha failed to load. Try refreshing the page or disabling your ad blocker.
+            </p>
+          )}
 
           {error && (
             <p className="text-sm text-red-500 text-center">{error}</p>
