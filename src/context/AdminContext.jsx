@@ -178,7 +178,8 @@ export function AdminProvider({ children }) {
       throw new Error(`Too many attempts. Try again in ${remaining}s.`);
     }
     const options = captchaToken ? { captchaToken } : {};
-    const { error } = await supabase.auth.signInWithPassword({ email, password }, options);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password }, options);
+    console.log("Supabase login response:", { data, error });
     if (error) {
       const newCount = loginAttempts.count + 1;
       if (newCount >= MAX_LOGIN_ATTEMPTS) {
@@ -186,7 +187,7 @@ export function AdminProvider({ children }) {
       } else {
         setLoginAttempts((p) => ({ ...p, count: newCount }));
       }
-      return false;
+      throw new Error(error.message || "Login failed");
     }
     setLoginAttempts({ count: 0, cooldownUntil: 0 });
     return true;

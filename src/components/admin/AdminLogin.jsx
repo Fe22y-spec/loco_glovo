@@ -29,10 +29,6 @@ export default function AdminLogin() {
       const ok = await login(email, password, captchaToken);
       if (ok) {
         navigate("/admin/dashboard");
-      } else {
-        setError("Invalid login credentials.");
-        setCaptchaToken(null);
-        captchaRef.current?.resetCaptcha();
       }
     } catch (err) {
       setError(err?.message || "Login failed. Check your connection.");
