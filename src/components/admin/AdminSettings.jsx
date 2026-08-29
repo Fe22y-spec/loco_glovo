@@ -133,37 +133,43 @@ export default function AdminSettings() {
         {/* Catalogue items */}
         <div className="space-y-1.5 max-h-96 overflow-y-auto">
           {filteredCatalogue.map((item) => (
-            <div key={item.id} className="flex items-center gap-2 rounded-lg bg-white/50 dark:bg-white/5 px-3 py-2">
-              <button onClick={() => updateCatalogueItem(item.id, { enabled: !item.enabled })}
-                className={`shrink-0 h-8 sm:h-7 w-8 sm:w-7 grid place-items-center rounded-full ${
-                  item.enabled ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400" : "bg-red-100 text-red-500 dark:bg-red-900/30 dark:text-red-400"
-                }`}
-                title={item.enabled ? "Disable" : "Enable"}
-              >
-                {item.enabled ? <Eye size={13} /> : <EyeOff size={13} />}
-              </button>
-              {item.image && (
-                <img src={item.image} alt="" className="h-8 w-8 rounded object-cover shrink-0" />
-              )}
-              <div className="flex-1 min-w-0">
-                <p className={`text-sm font-medium ${item.enabled ? "text-ink dark:text-white" : "text-gray-400 dark:text-gray-500 line-through"}`}>
-                  {item.name}
-                </p>
-                <p className="text-[10px] text-gray-400 dark:text-gray-500">{item.category}</p>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <span className="text-xs text-gray-500">KSh</span>
-                <input type="number" value={item.price}
-                  onChange={(e) => updateCatalogueItem(item.id, { price: Number(e.target.value) })}
-                  className="w-14 sm:w-16 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-1.5 sm:px-2 py-1 text-xs text-ink dark:text-white outline-none focus:ring-1 focus:ring-vibrantOrange"
-                />
-                <button onClick={() => removeCatalogueItem(item.id)}
-                  className="h-8 sm:h-7 w-8 sm:w-7 grid place-items-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50"
-                  title="Remove"
+            <div key={item.id} className="rounded-lg bg-white/50 dark:bg-white/5 px-3 py-2 space-y-2">
+              <div className="flex items-center gap-2">
+                <button onClick={() => updateCatalogueItem(item.id, { enabled: !item.enabled })}
+                  className={`shrink-0 h-8 sm:h-7 w-8 sm:w-7 grid place-items-center rounded-full ${
+                    item.enabled ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400" : "bg-red-100 text-red-500 dark:bg-red-900/30 dark:text-red-400"
+                  }`}
+                  title={item.enabled ? "Disable" : "Enable"}
                 >
-                  <Trash2 size={12} />
+                  {item.enabled ? <Eye size={13} /> : <EyeOff size={13} />}
                 </button>
+                {item.image && (
+                  <img src={item.image} alt="" className="h-8 w-8 rounded object-cover shrink-0" />
+                )}
+                <div className="flex-1 min-w-0">
+                  <p className={`text-sm font-medium ${item.enabled ? "text-ink dark:text-white" : "text-gray-400 dark:text-gray-500 line-through"}`}>
+                    {item.name}
+                  </p>
+                  <p className="text-[10px] text-gray-400 dark:text-gray-500">{item.category}</p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-xs text-gray-500">KSh</span>
+                  <input type="number" value={item.price}
+                    onChange={(e) => updateCatalogueItem(item.id, { price: Number(e.target.value) })}
+                    className="w-14 sm:w-16 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-1.5 sm:px-2 py-1 text-xs text-ink dark:text-white outline-none focus:ring-1 focus:ring-vibrantOrange"
+                  />
+                  <button onClick={() => removeCatalogueItem(item.id)}
+                    className="h-8 sm:h-7 w-8 sm:w-7 grid place-items-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50"
+                    title="Remove"
+                  >
+                    <Trash2 size={12} />
+                  </button>
+                </div>
               </div>
+              <input type="text" value={item.image || ""} placeholder="Image URL"
+                onChange={(e) => updateCatalogueItem(item.id, { image: e.target.value })}
+                className="w-full rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-1.5 text-[11px] text-ink dark:text-white placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-vibrantOrange"
+              />
             </div>
           ))}
         </div>
