@@ -1,39 +1,28 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Lock, Mail, ArrowRight, ShieldAlert } from "lucide-react";
 import { useAdmin } from "../../context/AdminContext.jsx";
-
-const HCAPTCHA_SITE_KEY = "2442079e-fad4-44d6-8592-87f0e3346108";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState(null);
-  const captchaRef = useRef(null);
   const { login } = useAdmin();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    if (!captchaToken) {
-      setError("Please complete the security check.");
-      return;
-    }
     setLoading(true);
     try {
-      const ok = await login(email, password, captchaToken);
+      const ok = await login(email, password);
       if (ok) {
         navigate("/admin/dashboard");
       }
     } catch (err) {
       setError(err?.message || "Login failed. Check your connection.");
-      setCaptchaToken(null);
-      captchaRef.current?.resetCaptcha();
     }
     setLoading(false);
   };
@@ -78,12 +67,6 @@ export default function AdminLogin() {
           </div>
 
           <div className="flex justify-center">
-            <HCaptcha
-              ref={captchaRef}
-              sitekey={HCAPTCHA_SITE_KEY}
-              onVerify={(token) => setCaptchaToken(token)}
-              onExpire={() => setCaptchaToken(null)}
-            />
           </div>
 
           {error && (
@@ -92,7 +75,7 @@ export default function AdminLogin() {
 
           <button
             type="submit"
-            disabled={loading || !captchaToken}
+            disabled={loading}
             className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient text-white font-display font-semibold py-3 px-6 shadow-glowPurple hover:shadow-glowOrange transition-all disabled:opacity-50"
           >
             {loading ? "Signing in..." : "Sign In"}
