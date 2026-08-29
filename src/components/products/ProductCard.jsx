@@ -18,11 +18,11 @@ export default function ProductCard({ product, index = 0, onAddToOrder }) {
       whileHover={{ y: -8 }}
       className="glow-card glass shadow-card rounded-xl2 overflow-hidden flex flex-col"
     >
-      <div className="relative h-32 sm:h-40 overflow-hidden">
+      <div className="relative h-32 sm:h-40 overflow-hidden bg-gray-100 dark:bg-gray-800">
         <motion.img
+          key={product.id}
           src={product.image}
           alt={product.name}
-          loading="lazy"
           className="h-full w-full object-cover"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.5 }}

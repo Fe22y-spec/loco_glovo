@@ -10,7 +10,7 @@ export default function AdminSettings() {
   const [passwordForm, setPasswordForm] = useState({ newPass: "", confirm: "" });
   const [passwordError, setPasswordError] = useState("");
   const [passwordSuccess, setPasswordSuccess] = useState(false);
-  const [newItem, setNewItem] = useState({ name: "", category: "Meals", price: "" });
+  const [newItem, setNewItem] = useState({ name: "", category: "Meals", price: "", image: "" });
   const [catFilter, setCatFilter] = useState("All");
 
   const categories = [...new Set(catalogue.map((c) => c.category))];
@@ -44,8 +44,8 @@ export default function AdminSettings() {
 
   const handleAddItem = () => {
     if (!newItem.name.trim() || !newItem.price) return;
-    addCatalogueItem({ name: newItem.name.trim(), category: newItem.category, price: Number(newItem.price) });
-    setNewItem({ name: "", category: "Meals", price: "" });
+    addCatalogueItem({ name: newItem.name.trim(), category: newItem.category, price: Number(newItem.price), image: newItem.image.trim() || null });
+    setNewItem({ name: "", category: "Meals", price: "", image: "" });
   };
 
   const filteredCatalogue = catFilter === "All" ? catalogue : catalogue.filter((c) => c.category === catFilter);
@@ -142,6 +142,9 @@ export default function AdminSettings() {
               >
                 {item.enabled ? <Eye size={13} /> : <EyeOff size={13} />}
               </button>
+              {item.image && (
+                <img src={item.image} alt="" className="h-8 w-8 rounded object-cover shrink-0" />
+              )}
               <div className="flex-1 min-w-0">
                 <p className={`text-sm font-medium ${item.enabled ? "text-ink dark:text-white" : "text-gray-400 dark:text-gray-500 line-through"}`}>
                   {item.name}
@@ -186,6 +189,10 @@ export default function AdminSettings() {
                 className="w-14 sm:w-16 bg-transparent outline-none text-sm text-ink dark:text-white"
               />
             </div>
+            <input type="text" value={newItem.image} placeholder="Image URL (optional)"
+              onChange={(e) => setNewItem((f) => ({ ...f, image: e.target.value }))}
+              className="flex-1 min-w-[180px] rounded-xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-3 py-2 text-sm text-ink dark:text-white placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-vibrantOrange"
+            />
             <button onClick={handleAddItem}
               className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient text-white text-xs font-semibold px-4 py-2.5 sm:py-2 hover:shadow-glowOrange transition-shadow min-h-[44px] sm:min-h-0"
             >

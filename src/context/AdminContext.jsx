@@ -395,6 +395,7 @@ export function AdminProvider({ children }) {
     if (updates.price !== undefined) dbUpdates.price = updates.price;
     if (updates.enabled !== undefined) dbUpdates.enabled = updates.enabled;
     if (updates.name !== undefined) dbUpdates.name = updates.name;
+    if (updates.image !== undefined) dbUpdates.image = updates.image;
     dbUpdates.updated_at = new Date().toISOString();
     await supabase.from("catalogue").update(dbUpdates).eq("id", id);
     setCatalogue((prev) => prev.map((c) => (c.id === id ? { ...c, ...updates } : c)));

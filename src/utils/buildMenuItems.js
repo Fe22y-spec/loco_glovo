@@ -120,7 +120,7 @@ export function buildMenuItems(catalogue) {
         name: c.name,
         category: catCategoryToId[c.category] || "fast-food",
         price: c.price,
-        image: customImages[key] || product?.image || fallbackImages[c.category] || fallbackImages.Meals,
+        image: c.image || customImages[key] || product?.image || fallbackImages[c.category] || fallbackImages.Meals,
         description: customDescriptions[key] || product?.description || `${c.name} — available on Loco Glovo.`,
         tags: product?.tags || [],
       };
